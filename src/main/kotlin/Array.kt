@@ -10,7 +10,7 @@ fun main(){
         User("Bui","Hoa"),
         User("Hoa","Bui")
     )
-    users.forEach {
+    users.plus(User("Thor","")).forEach {
         println(it)
     }
     // Thêm một phần tử mới

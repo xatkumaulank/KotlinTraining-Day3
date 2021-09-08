@@ -1,6 +1,14 @@
 
 
-
+val ironman = User("Tony","Stark")
+val avengers = mutableListOf(
+    User("Steve","Rogers"),
+    ironman,
+    User("Thor","Odinson"),
+    User("Clint","Barton"),
+    User("Natasha","Romanoff"),
+    User("Bruce","Banner")
+)
 fun creatingImmutableList(){
     val items = listOf(1,2,3,4,5,6)
     items.forEach { println(it) }
@@ -27,9 +35,24 @@ fun creatingImmutableList(){
     println(stuff.isEmpty())
 }
 fun creatingMutableList(){
-    
+//    val items = mutableListOf(1,2,3,4,5,6)
+//
+//    items.add(7)
+//    items.remove(4)
+//    items.removeAt(0)
+//    items[2] = 12
+//    items.forEach{
+//        println(it)
+//    }
+
+    avengers.add(User("Peter","Parker"))
+    avengers.removeAt(0)
+    avengers.remove(ironman)
+    avengers[2] = User("Loki","Laufeyson")
+
+    avengers.forEach { println(it) }
 }
 fun main(){
-    creatingImmutableList()
-
+    //creatingImmutableList()
+    creatingMutableList()
 }
