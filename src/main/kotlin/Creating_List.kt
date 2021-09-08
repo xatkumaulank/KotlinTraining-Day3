@@ -1,14 +1,6 @@
 
 
-val ironman = User("Tony","Stark")
-val avengers = mutableListOf(
-    User("Steve","Rogers"),
-    ironman,
-    User("Thor","Odinson"),
-    User("Clint","Barton"),
-    User("Natasha","Romanoff"),
-    User("Bruce","Banner")
-)
+
 fun creatingImmutableList(){
     val items = listOf(1,2,3,4,5,6)
     items.forEach { println(it) }
@@ -44,7 +36,15 @@ fun creatingMutableList(){
 //    items.forEach{
 //        println(it)
 //    }
-
+    val ironman = User("Tony","Stark")
+    val avengers = mutableListOf(
+        User("Steve","Rogers"),
+        ironman,
+        User("Thor","Odinson"),
+        User("Clint","Barton"),
+        User("Natasha","Romanoff"),
+        User("Bruce","Banner")
+    )
     avengers.add(User("Peter","Parker"))
     avengers.removeAt(0)
     avengers.remove(ironman)
@@ -52,7 +52,20 @@ fun creatingMutableList(){
 
     avengers.forEach { println(it) }
 }
+fun filteringAList(){
+    val names = listOf("Steve","Tony","Clint","Thor","Natasha","Bruce")
+    val filerName = names.filter { it.contains("o") }
+    println(filerName)
+
+    val ages = listOf(15,48,65,263,1,18,95,12)
+    val filterAge = ages.filter(::isAdult)
+    println(filterAge)
+}
+fun isAdult(age : Int) : Boolean{
+    return age >= 18
+}
 fun main(){
     //creatingImmutableList()
-    creatingMutableList()
+    //creatingMutableList()
+    filteringAList()
 }
