@@ -61,11 +61,35 @@ fun filteringAList(){
     val filterAge = ages.filter(::isAdult)
     println(filterAge)
 }
+fun sortList(){
+    val names = listOf("Steve","Tony","Clint","Thor","Natasha","Bruce")
+    println(names.sorted())
+    println(names.sortedDescending())
+    println(names.sortedBy { it.length })
+    println(names.sortedWith(compareBy<String> { it.length }.thenBy { it.last() })) // sắp xếp theo độ dài tên, nếu trùng thì theo chữ cái cuối cùng
+}
+fun sortListVer2(){
+    val avengers = listOf(
+        User("Steve","Rogers"),
+        User("Tony","Stark"),
+        User("Thor","Odinson"),
+        User("Clint","Barton"),
+        User("Natasha","Romanoff"),
+        User("Bruce","Banner")
+    )
+    avengers.sortedBy { it.lastName }.forEach { println(it) }
+    println("---------")
+    avengers.sortedByDescending { it.firstName }.forEach { println(it) }
+    println("---------")
+    avengers.sortedWith(compareBy<User> { it.firstName }.thenBy { it.firstName[1] }.thenBy { it.lastName }).forEach { println(it) }
+}
 fun isAdult(age : Int) : Boolean{
     return age >= 18
 }
 fun main(){
     //creatingImmutableList()
     //creatingMutableList()
-    filteringAList()
+    //filteringAList()
+    //sortList()
+    sortListVer2()
 }
