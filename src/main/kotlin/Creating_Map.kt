@@ -34,8 +34,24 @@ fun creatingMutableMap(){
        println("${state.key} is ${state.value}")
     }
 }
+fun sortMap(){
+    val states = mapOf(
+        "HN" to "Hà Nội",
+        "DN" to "Đà Nẵng",
+        "HCM" to "Tp.Hồ Chí Minh",
+        "DL" to "Đà Lạt"
+    )
+    for (state in states.toSortedMap()){
+        println("${state.key} is ${state.value}")
+    }
+    println("----")
+    for (state in states.toSortedMap()){
+        println("${state.key} is ${state.value}")
+    }
+}
 fun main()
 {
     //creatingImmutableMap()
-    creatingMutableMap()
+    //creatingMutableMap()
+    sortMap()
 }
